@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Risk assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,560&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="page">
+      <p class="eyebrow">Base · read only</p>
+      <h1>Risk assistant</h1>
+      <p class="lede">
+        Paste an address. The assistant calls four tools, then writes a short note
+        from those results: what the address holds, whether that value sits in one
+        asset, and what is worth watching. It has no key and cannot move funds.
+      </p>
+
+      <form id="lookup">
+        <label for="address">Address</label>
+        <div class="row">
+          <input id="address" name="address" autocomplete="off" spellcheck="false" placeholder="0x…" required />
+          <button id="submit" type="submit">Explain</button>
+        </div>
+        <div class="examples">
+          <button type="button" data-example="sample">Sample wallet</button>
+          <button type="button" data-example="empty">Empty wallet</button>
+        </div>
+        <p id="form-error" role="alert"></p>
+      </form>
+
+      <p id="status" role="status"></p>
+      <ol id="steps" class="steps"></ol>
+      <article id="note" class="note" hidden>
+        <p>Note</p>
+        <p id="note-text"></p>
+      </article>
+
+      <footer>
+        Compare the numbers with the
+        <a href="http://localhost:5173">wallet explorer</a>
+        and the
+        <a href="http://localhost:5177">price oracle</a>.
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
